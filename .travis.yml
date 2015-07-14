@@ -1,23 +1,24 @@
----
 language: node_js
 node_js:
-  - "0.12"
-
+- '0.12'
 sudo: false
-
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 before_install:
-  - export PATH=/usr/local/phantomjs-2.0.0/bin:$PATH
-  - "npm config set spin false"
-  - "npm install -g npm@^2"
-
+- export PATH=/usr/local/phantomjs-2.0.0/bin:$PATH
+- npm config set spin false
+- npm install -g npm@^2
 install:
-  - npm install -g bower
-  - npm install
-  - bower install
-
+- npm install -g bower
+- npm install
+- bower install
 script:
-  - npm test
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: ZxM8nvx71W8y/rCVYtaGi1A/Vhmd1dZZI4QfynbSCJNgzv3aDLEw9BDs2yXvFCRhjcWEtBLMx9+29rdGSWO1IE4jpjTXwO7WV57lQH8IIwoH6xTI1wlBgvtzftU8TVkPSitLrwME0mjXeSgTMHYF1Oxnk/XpPdxXmFOwptVJfU4o2LAhkxWj5FvsjuPdayB6Rf9+iYdJwVfomIMDdYUrQIEseBUpKMyHSsyp9+BxRGn5hADxF4ElUEOLvTuWDcvWo7uJXWtPjpTp4yHZo7h+ZzKeBBRU17bIQa0/ytLr6kgVNG1v0TzJoWp1G+mdSRL1r/2dhBdfeEQqXSTajndHabxEeS2bvLkmzcdd/pbJQoyZGbsWLmxO9xEVnXizrU00LAPEQ4AHm+PsTi/75u9gUisG8NxgoCQYKs5txhQ+I23afYhAqAsqze1T5PFxTJuFy8eJQ9sFDRX1PQzaxwDZ//rQpaZntAVh6pZT2+RcQb8y2Y+zyPFYJB965EvDjkbR6GEr1TGgn6tLe/RbVCCxi3PC5dlkhXdAxa2aEAlDx6+A1A8ZkrQh1jao3n1QC3mhXTSnQlje0HZYyv8V2ZGbChwzafEL6Lvp8urBdc7J3VTyqiv6AwhCRj4NS3WM40cG0TSAp2J/s8tg7h4SUIZdjUw9IidZNAXpXuO2+GKq0HU=
+  app: conductor-web
+  on:
+    repo: wbrefvem/conductor-web
