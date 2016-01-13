@@ -1,3 +1,11 @@
-<h2 id="title">Welcome to Ember.js</h2>
-
+<header>
+    <h1 id="title">Integration Hub</h1>
+    {{#if session.isAuthenticated}}
+      <a {{ action 'invalidateSession' }} class="pull-right">Logout</a>
+    {{else}}
+      {{#link-to 'login'}}Login{{/link-to}} 
+    {{/if}}
+</header>
+<div class="container">
 {{outlet}}
+</div>
